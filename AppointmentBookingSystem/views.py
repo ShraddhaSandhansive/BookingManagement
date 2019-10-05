@@ -5,7 +5,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from AppointmentBookingSystem.models import *
-
+from django.core.mail import send_mail
+from django.conf import settings
 # Create your views here.
 
 def test(request):
@@ -33,6 +34,11 @@ def storeUser(request):
         user_obj.isAdmin = 0
         user_obj.password = password
         user_obj.save()
+        subject = 'Thank you for registering to our site'
+        message = ' it  means a world to us '
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list = ['shraddhasandhansive@gmail.com',]
+        send_mail( subject, message, email_from, recipient_list )
         return JsonResponse({'code' : 200})
     except:
         import traceback
