@@ -121,11 +121,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# EMAIL_HOST_USER = "ankushgochke@gmail.com"
-# EMAIL_HOST_PASSWORD = "fcpark22"
-
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = "ankushgochke@gmail.com"
-EMAIL_HOST_PASSWORD = "shraddhagochke"
+EMAIL_HOST_USER = "aromanailarts@gmail.com"
+EMAIL_HOST_PASSWORD = "shraddha2712"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

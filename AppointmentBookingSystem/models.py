@@ -44,8 +44,8 @@ class Bookings(models.Model):
     booking_id = models.AutoField(primary_key=True)
     serviceId = models.ForeignKey(Services, on_delete=models.CASCADE)
     userId = models.ForeignKey(Users, on_delete=models.CASCADE)
-    staffId = models.ForeignKey(Staff, on_delete=models.CASCADE)
+    # staffId = models.ForeignKey(Staff, on_delete=models.CASCADE, default = "")
     booking_status = models.SmallIntegerField()     # 0 - placed, 1 - Confirmed, 2 - Cancelled, 3 - Postponed
-
+    booking_date = models.CharField(max_length=100)
     class Meta:
         db_table = 'Bookings'

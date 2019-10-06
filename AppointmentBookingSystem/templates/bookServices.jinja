@@ -11,6 +11,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>                       
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.60/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.60/pdfmake.min.js.map"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.60/vfs_fonts.js"></script>
+
 
    
 </head>
@@ -54,7 +58,7 @@
     padding: 10px 0 10px 5px;
     width: 100%;
 }
-.txt2[type="submit"] {
+.txt2[type="button"] {
     background: #242424 none repeat scroll 0 0;
     border: 1px solid #4f5c04;
     border-radius: 25px;
@@ -75,12 +79,22 @@
 
 </style>
 <body style = "margin-top : 10%; margin-left: 36%">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-inverse" style="margin-top:-2%;margin-top: -16%; margin-left: -57%;">
+        <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Aroma Nail Salon</a>
+        </div>
+        <ul class="nav navbar-nav" style="width:85%">
+            <li class=""><a href="/renderAllServices/">Home</a></li>   
+            <li><a href="/aboutus/">About Us</a></li>      
+            <li style="float:right"><a href="/logout/">Logout</a></li>
+        </ul>
+        </div>
+</nav>
 <input type='text' style="display:none" id ="serviceId" value = {{service.service_id}} />
     <div class="container">
         <div class="row">
-            <div class='col-sm-6' style="width:35%; margin-top: -10%">
+            <div class='col-sm-6' style="width:35%; margin-top: 2%">
             <div class="form-group">
             <h4 class="heading"><strong>Select Date</strong> <span></span></h4>
                 <div class='input-group date' id='datetimepicker1'>
@@ -90,18 +104,22 @@
                     </span>
                 </div>
                 <div>
-                    <input type="submit"  name="submit"  value = "Book" class="txt2" onClick="bookService()" style="margin-left:30%; margin-top:5%">
+                    <input type="button"  name="submit"  value = "Request" class="txt2" onClick="bookService()" style="margin-left:30%; margin-top:5%;">
                 </div>
-            </div>
+            </div> 
         </div>
         <script type="text/javascript">
             $(function () {
                 $('#datetimepicker1').datetimepicker({
                 enabledHours: [11, 12, 13, 14, 15, 16, 17, 18, 19],
-                minDate:new Date()
+                minDate:new Date(),
+                daysOfWeekDisabled : ["0, 6"]
                 });
             });
         </script>       
+        </div>
+        <div>
+            <iframe val = "" id = "billFrame" style="margin-top:10%;  display : none"/>
         </div>
     </div>
 
