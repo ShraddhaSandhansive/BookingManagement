@@ -72,17 +72,28 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
+<nav class="navbar navbar-inverse" style="margin-top:-2%">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Aroma Nail Salon</a>
+    </div>
+    <ul class="nav navbar-nav" style="width:85%">
+      <li class="active"><a href="/renderAllServices/">Home</a></li>    
+      <li><a href="/aboutus/">About Us</a></li>      
+      <li style="float:right"><a href="/logout/">Logout</a></li>
+    </ul>
+  </div>
+</nav>
     <div class="container">
 	<div class="row">
-                <h4 class="heading"><strong>Add Services</strong> <span></span></h4>
+                <h4 class="heading"><strong>Services</strong> <span></span></h4>
                 <div class="form">
                     {% for main_service in services %}
                     <div class="col-md-4" style="height: 350px">
                         <a href = '/serviceSelected/{{main_service.service_id}}'>
                             <img src = {{main_service.service_image}} style="width: 270px; margin-bottom:10%; height: 226px">
                             <h3 style="margin-bottom:-5%;margin-top:-5%; color: black;"> {{main_service.service_name}}<h3>
-                            <h4 style="margin-bottom:-5%;margin-top:-5%; color: black;"> {{main_service.service_price}} RS.</h4>
+                            <h4 style="margin-bottom:-5%;margin-top:-5%; color: black;">Rs. {{main_service.service_price}}</h4>
                         </a>
                     </div>
                     {% endfor %}
